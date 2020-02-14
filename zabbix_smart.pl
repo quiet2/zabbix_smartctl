@@ -46,8 +46,7 @@ sub get_smartctl {
 	my $hostname = shift;
 	my %uniq;
 	my @res;
-	my @dev_array = split(/\//, $ref->{'{#DEVNAME}'});
-	my $dev = pop @dev_array;
+	my $dev = $ref->{'{#DEVNAME}'};
 
 	my $data = `smartctl -A -H -i -d $ref->{'{#DEVTYPE}'} $ref->{'{#DEVNAME}'}`;
 	my @lines = split /[\r\n]+/, $data;
